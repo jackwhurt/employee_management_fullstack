@@ -1,6 +1,7 @@
 package com.kainos.ea;
 
 import com.kainos.ea.db.GetEmployeeByDept;
+import com.kainos.ea.db.GetFinanceReport;
 import com.kainos.ea.model.Employee;
 
 import javax.ws.rs.GET;
@@ -10,6 +11,8 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.sql.*;
 import java.util.List;
+import java.util.Map;
+
 import com.kainos.ea.db.EmployeeDb;
 import com.kainos.ea.model.Employee;
 import com.kainos.ea.model.SalesEmployee;
@@ -35,6 +38,16 @@ public class EmployeeManagementService {
 
         List<Employee> myEmployees = GetEmployeeByDept.execute(dept);
         return myEmployees;
+    }
+
+    @GET
+    @Path("/employees/finance-report")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Map<String, Integer> getFinanceReport() {
+
+        Map<String, Integer> myFinanceRepMap = GetFinanceReport.execute();
+        return myFinanceRepMap;
+
     }
 
     @POST

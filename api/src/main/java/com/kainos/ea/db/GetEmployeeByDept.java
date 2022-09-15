@@ -13,7 +13,6 @@ public class GetEmployeeByDept {
         List<Employee> myEmployees = new ArrayList<>();
         ResultSet rs = null;
         String query = "select * from Employees where department = ?;";
-
         Connection myConnection = EmployeeDb.getConnection();
 
         try (PreparedStatement preparedQuery = myConnection.prepareStatement(query)) {

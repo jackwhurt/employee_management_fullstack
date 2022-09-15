@@ -17,6 +17,8 @@ router.post('/add-employee', async (req, res) => {
 
   let result = await employeeData.addEmployee( employee );
 
+  console.log(result)
+
   if ( result != 200 ) {
     res.locals.errormessage = "please check your fields again."
     res.render('add-employee-form', req.body)
@@ -51,7 +53,7 @@ router.get('/get-employees-by-dept', async (req,res) => {
   var dept = req.query.department
   res.locals.dept = dept
   res.render('list-employees', {employees: await employeeData.getEmployeeByDept(dept)})
-  
+
 })
 
 router.get('/get-employees-by-dept', async (req,res) => {
