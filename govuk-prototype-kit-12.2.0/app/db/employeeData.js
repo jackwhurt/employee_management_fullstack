@@ -24,7 +24,7 @@ exports.addEmployee = async ( newEmployee ) => {
 exports.getEmployeeByDept = async (dept) => {
 
     try {
-        const res = await axios.get(`http://localhost:8080/api/Employees/${dept}`)
+        const res = await axios.get(`http://localhost:8080/api/employees/${dept}`)
         return res.data
     } catch(e) {
         return new Error('couldnt find employees')

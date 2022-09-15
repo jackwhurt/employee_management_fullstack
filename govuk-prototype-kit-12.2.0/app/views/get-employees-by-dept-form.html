@@ -1,0 +1,54 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Get Employees By Department</h1>
+
+      <form class="form" action="/get-employees-by-dept" method="get">
+
+        {{ govukSelect({
+          id: "department",
+          name: "department",
+          label: {
+          text: "Select Department"
+      },
+          items: [
+              {
+              value: "Sales",
+              text: "SALES"
+              },
+              {
+              value: "HR",
+              text: "HR",
+              selected: true
+              },
+              {
+              value: "Talent",
+              text: "TALENT"
+              },
+              {
+              value: "Finance",
+              text: "FINANCE"
+              }
+          ]
+      }) }}
+
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
