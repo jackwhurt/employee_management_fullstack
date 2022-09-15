@@ -186,3 +186,6 @@ dist
 
 # Additional ignores
 app/dbconfig.json
+api/.idea
+api/src/main/resources/db.properties
+api/target/
