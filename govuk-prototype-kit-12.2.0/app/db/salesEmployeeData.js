@@ -4,17 +4,11 @@ exports.addSalesEmployee = async ( newSalesEmployee ) => {
     console.log( newSalesEmployee )
 
     try {
-        const res = await axios.post('http://localhost:8080/api/employee',
+        const res = await axios.post('http://localhost:8080/api/salesEmployee',
         {
-            Name:               newSalesEmployee.name,
-            Address:            newSalesEmployee.address,
-            Postcode:           newSalesEmployee.postcode,
-            StartingSalary:     newSalesEmployee.startingsalary,
-            BankNum:            newSalesEmployee.banknumber,
-            NIN:                newSalesEmployee.nin,
-            Department:         "sales",
-            Commision:          newSalesEmployee.commision,
-            TotalSales:         newSalesEmployee.totalsales
+            EmployeeID:     newSalesEmployee.id,
+            Commision:      newSalesEmployee.commision,
+            TotalSales:     newSalesEmployee.totalsales
         })
 
         return res.status;

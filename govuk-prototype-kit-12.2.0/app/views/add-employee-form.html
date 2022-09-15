@@ -3,27 +3,16 @@
 {% block pageTitle %}
 {{ serviceName }}
 {% endblock %}
+ 
+{% block beforeContent %}
+  <a class="govuk-back-link" href="index.html">index</a>
+{% endblock %}
 
 {% block content %}
 
 {% if errormessage %}
 <div class="govuk-error-message">{{ errormessage }}</div>
 {% endif %}
-
-{% if successmessage %}
-{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
-{% set html %}
-  <h3 class="govuk-notification-banner__heading">
-    {{ successmessage }}
-  </h3>
-{% endset %}
-
-{{ govukNotificationBanner({
-    html: html,
-    type: 'success'
-  }) }}
-{% endif %}
-
 
 <form class="form" action="/add-employee" method="post">
     {% from "govuk/components/input/macro.njk" import govukInput %}
@@ -44,8 +33,7 @@
         },
         classes: "govuk-!-width-two-thirds",
         id: "name",
-        name: "name",
-        value: data["name"]
+        name: "name"
     }) }}
 
     {{ govukInput({
@@ -54,8 +42,7 @@
         },
         classes: "govuk-!-width-two-thirds",
         id: "address",
-        name: "address",
-        value: data["address"]
+        name: "address"
     }) }}
 
     {{ govukInput({
@@ -73,8 +60,7 @@
         },
         classes: "govuk-input--width-10",
         id: "startingsalary",
-        name: "startingsalary",
-        value: data["startingsalary"]
+        name: "startingsalary"
     }) }}
 
     {{ govukInput({
@@ -83,8 +69,7 @@
         },
         classes: "govuk-input--width-10",
         id: "banknumber",
-        name: "banknumber",
-        value: data["bank-number"]
+        name: "banknumber"
     }) }}
 
     {{ govukInput({
@@ -93,8 +78,7 @@
         },
         classes: "govuk-input--width-10",
         id: "nin",
-        name: "nin",
-        value: data["nin"]
+        name: "nin"
     }) }}
 
     {{ govukSelect({
@@ -104,6 +88,11 @@
         text: "Department"
     },
         items: [
+            {
+            value: "sales",
+            text: "SALES",
+            selected: true
+            },
             {
             value: "hr",
             text: "HR",
