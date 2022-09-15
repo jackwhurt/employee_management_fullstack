@@ -3,12 +3,13 @@ const axios = require('axios');
 exports.addEmployee = async ( newEmployee ) => {
     console.log( newEmployee )
 
-    const res = await axios.post('http://localhost:8080/api/employee',
+    try {
+        const res = await axios.post('http://localhost:8080/api/employee',
         {
             Name:               newEmployee.name,
             Address:            newEmployee.address,
-            Postcode:           newEmployee.Postcode,
-            StartingSalary:     newEmployee.salary,
+            Postcode:           newEmployee.postcode,
+            StartingSalary:     newEmployee.startingsalary,
             BankNum:            newEmployee.banknumber,
             NIN:                newEmployee.nin,
             Department:         newEmployee.department
@@ -24,3 +25,9 @@ exports.addEmployee = async ( newEmployee ) => {
     return res.data
 
  }
+        return res.status;
+
+    } catch (e) {
+        return new Error('couldnt add employee')
+     }
+}
