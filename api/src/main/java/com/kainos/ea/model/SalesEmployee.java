@@ -4,11 +4,12 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.checkerframework.checker.signature.qual.Identifier;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class SalesEmployee {
 
-    @NotNull
+    @NotEmpty
     @Identifier
     private int EmployeeID;
     private float Commision;

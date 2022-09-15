@@ -5,11 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import org.checkerframework.checker.signature.qual.Identifier;
 import org.checkerframework.common.aliasing.qual.Unique;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class Projects {
 
-    @NotNull
+    @NotEmpty
     @Identifier
     @Unique
     private int ProjectID;
