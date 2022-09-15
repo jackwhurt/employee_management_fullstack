@@ -59,7 +59,7 @@ public class EmployeeManagementService {
             return Response.ok("User added successfully!").build();
         } catch (SQLException e) {
             System.err.println("Exception while creating employee: " + e);
-            return Response.status(400, "Invalid input:").build();
+            return Response.status(400, "Invalid employee data").build();
         }
     }
 }
