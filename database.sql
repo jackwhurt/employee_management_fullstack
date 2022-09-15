@@ -1,6 +1,3 @@
-CREATE DATABASE Web_Service_JadeN;
-USE Web_Service_JadeN;
-
 -- Setting up tables
 
 -- Employee 'base' table, every Sales employee has a 1 - 1 link to an employee record
