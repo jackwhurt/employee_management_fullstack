@@ -32,7 +32,7 @@
 
     {% call govukFieldset({
         legend: {
-        text: "Add New Employee",
+        text: "Add New Sale Employee",
         classes: "govuk-fieldset__legend--l",
         isPageHeading: true
         }
@@ -97,27 +97,24 @@
         value: data["nin"]
     }) }}
 
-    {{ govukSelect({
-        id: "department",
-        name: "department",
+    {{ govukInput({
         label: {
-        text: "Department"
-    },
-        items: [
-            {
-            value: "hr",
-            text: "HR",
-            selected: true
-            },
-            {
-            value: "talent",
-            text: "TALENT"
-            },
-            {
-            value: "finance",
-            text: "FINANCE"
-            }
-        ]
+        text: "Commission Rate"
+        },
+        classes: "govuk-input--width-5",
+        id: "nin",
+        name: "nin",
+        value: data["nin"]
+    }) }}
+
+    {{ govukInput({
+        label: {
+        text: "Total Sales"
+        },
+        classes: "govuk-input--width-5",
+        id: "nin",
+        name: "nin",
+        value: data["nin"]
     }) }}
 
     <button class="govuk-button" data-module="govuk-button">ADD</button>
