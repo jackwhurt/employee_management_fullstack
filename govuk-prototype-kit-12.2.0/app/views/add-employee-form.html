@@ -10,6 +10,21 @@
 <div class="govuk-error-message">{{ errormessage }}</div>
 {% endif %}
 
+{% if successmessage %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% set html %}
+  <h3 class="govuk-notification-banner__heading">
+    {{ successmessage }}
+  </h3>
+{% endset %}
+
+{{ govukNotificationBanner({
+    html: html,
+    type: 'success'
+  }) }}
+{% endif %}
+
+
 <form class="form" action="/add-employee" method="post">
     {% from "govuk/components/input/macro.njk" import govukInput %}
     {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
