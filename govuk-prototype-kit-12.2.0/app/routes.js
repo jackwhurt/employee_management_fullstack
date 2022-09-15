@@ -64,4 +64,11 @@ router.get('/get-employees-by-dept', async (req,res) => {
   
 })
 
+router.get('/get-finance-report', async (req,res) => {
+
+  res.render('finance-report-form', {employees: await employeeData.getFinanceReport()})
+  
+})
+
+
 module.exports = router

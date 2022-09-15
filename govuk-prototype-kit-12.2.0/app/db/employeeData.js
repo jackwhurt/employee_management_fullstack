@@ -33,3 +33,14 @@ exports.getEmployeeByDept = async (dept) => {
         return new Error('couldnt find employees')
     }
  }
+
+ exports.getFinanceReport = async () => {
+
+    try {
+        const res = await axios.get(`http://localhost:8080/api/finance-report`)
+        console.log(res.data)
+        return res.data
+    } catch(e) {
+        return new Error('couldnt find employees')
+    }
+ }
