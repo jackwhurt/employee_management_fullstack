@@ -28,9 +28,9 @@ router.post('/add-employee', async (req, res) => {
 router.get('/get-employees-by-dept', async (req,res) => {
 
   var dept = req.query.department
-  console.log(dept)
   res.locals.dept = dept
   res.render('list-employees', {employees: await employeeData.getEmployeeByDept(dept)})
+  
 })
 
 
