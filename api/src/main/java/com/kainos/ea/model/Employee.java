@@ -20,13 +20,14 @@ public class Employee {
     private float StartingSalary;
     private String BankNum;
     private String NIN;
-    private enum Department{Sales,HR,Talent,Finance}
+    private String Department;
 
     @JsonCreator
-    public Employee(@JsonProperty("EmployeeID") @Identifier int employeeID,@JsonProperty("AddressID") String address,
+    public Employee(@JsonProperty("EmployeeID") @Identifier int employeeID,@JsonProperty("Address") String address,
                     @JsonProperty("Name") String name, @JsonProperty("Postcode") String postcode,
                     @JsonProperty("StartingSalary") float startingSalary,
-                    @JsonProperty("BankNum") String bankNum,@JsonProperty("NIN") String NIN) {
+                    @JsonProperty("BankNum") String bankNum,@JsonProperty("NIN") String NIN,
+                    @JsonProperty("Department") String department) {
         EmployeeID = employeeID;
         Address = address;
         Postcode = postcode;
@@ -34,6 +35,7 @@ public class Employee {
         StartingSalary = startingSalary;
         BankNum = bankNum;
         this.NIN = NIN;
+        Department = department;
     }
 
     public int getEmployeeID() {
@@ -90,5 +92,13 @@ public class Employee {
 
     public void setNIN(String NIN) {
         this.NIN = NIN;
+    }
+
+    public String getDepartment() {
+        return Department;
+    }
+
+    public void setDepartment(String department) {
+        Department = department;
     }
 }

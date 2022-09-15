@@ -14,17 +14,19 @@ public class GetEmployeeByDept {
         ResultSet rs = null;
         String query = "select * from Employees where department = '" + dept + "';";
 
-        try (Connection myConnection = EmployeeDb.getConnection();
-             PreparedStatement preparedQuery = myConnection.prepareStatement(query)) {
+        Connection myConnection = EmployeeDb.getConnection();
+
+        try (PreparedStatement preparedQuery = myConnection.prepareStatement(query)) {
 
             rs = preparedQuery.executeQuery();
 
             while (rs.next()) {
-//                Employee myEmployee = new Employee((short) rs.getInt("EmployeeNo"),
-//                        rs.getString("EmployeeName"), rs.getString("Address"),
-//                        rs.getString("NIN"),rs.getString("BankAccountNo"),
-//                        rs.getInt("Salary"), rs.getString("Department"));
-//                myEmployees.add(myEmployee);
+                Employee myEmployee = new Employee(rs.getInt("EmployeeID"),
+                        rs.getString("Address"), rs.getString("Name"),
+                        rs.getString("Postcode"),rs.getFloat("StartingSalary"),
+                        rs.getString("BankNum"), rs.getString("NIN"),
+                        rs.getString("Department"));
+                myEmployees.add(myEmployee);
             }
 
         } catch (SQLException ex) {

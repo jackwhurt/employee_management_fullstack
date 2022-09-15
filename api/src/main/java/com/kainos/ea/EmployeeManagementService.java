@@ -23,7 +23,7 @@ public class EmployeeManagementService {
     @GET
     @Path("/Employees/{dept}")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Employee> getEmployeesByDept(String dept) {
+    public List<Employee> getEmployeesByDept(@PathParam("dept") String dept) {
 
         List<Employee> myEmployees = GetEmployeeByDept.execute(dept);
         return myEmployees;
