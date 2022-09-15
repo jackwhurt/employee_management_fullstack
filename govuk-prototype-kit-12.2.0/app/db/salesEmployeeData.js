@@ -12,7 +12,7 @@ exports.addSalesEmployee = async ( newSalesEmployee ) => {
             StartingSalary:     newSalesEmployee.startingsalary,
             BankNum:            newSalesEmployee.banknumber,
             NIN:                newSalesEmployee.nin,
-            Department:         newSalesEmployee.department,
+            Department:         "sales",
             Commision:          newSalesEmployee.commision,
             TotalSales:         newSalesEmployee.totalsales
         })
