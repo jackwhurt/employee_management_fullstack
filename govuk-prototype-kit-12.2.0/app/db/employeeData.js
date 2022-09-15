@@ -15,10 +15,19 @@ exports.addEmployee = async ( newEmployee ) => {
             Department:         newEmployee.department
         })
 
-        return res.status;
-
     } catch (e) {
         
         return new Error('couldnt add employee')
      }
+
 }
+
+exports.getEmployeeByDept = async (dept) => {
+
+    try {
+        const res = await axios.get(`http://localhost:8080/api/Employees/${dept}`)
+        return res.data
+    } catch(e) {
+        return new Error('couldnt find employees')
+    }
+ }

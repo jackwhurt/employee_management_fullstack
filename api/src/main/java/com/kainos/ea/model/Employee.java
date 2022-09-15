@@ -4,18 +4,19 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.checkerframework.checker.signature.qual.Identifier;
 
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class Employee {
 
-    @NotNull
+    @NotEmpty
     @Identifier
     private int EmployeeID;
-    @NotNull
+    @NotEmpty
     private String Address;
-    @NotNull
+    @NotEmpty
     private String Postcode;
-    @NotNull
+    @NotEmpty
     private String Name;
     private float StartingSalary;
     private String BankNum;

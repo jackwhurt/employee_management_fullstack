@@ -30,6 +30,26 @@ router.get('/add-sales-employee-form', async (req, res) => {
   res.render('add-sales-employee-form')
 });
 
+router.get('/get-employees-by-dept', async (req,res) => {
 
+  var dept = req.query.department
+  res.locals.dept = dept
+  res.render('list-employees', {employees: await employeeData.getEmployeeByDept(dept)})
+  
+})
+
+
+router.get('/add-sales-employee-form', async (req, res) => {
+
+  res.render('add-sales-employee-form')
+});
+
+router.get('/get-employees-by-dept', async (req,res) => {
+
+  var dept = req.query.department
+  res.locals.dept = dept
+  res.render('list-employees', {employees: await employeeData.getEmployeeByDept(dept)})
+  
+})
 
 module.exports = router
