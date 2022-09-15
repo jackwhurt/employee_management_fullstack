@@ -1,0 +1,77 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="index.html">index</a>
+{% endblock %}
+
+{% block content %}
+
+{% if errormessage %}
+<div class="govuk-error-message">{{ errormessage }}</div>
+{% endif %}
+
+{% if successmessage %}
+{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+{% set html %}
+  <h3 class="govuk-notification-banner__heading">
+    {{ successmessage }}
+  </h3>
+{% endset %}
+
+{{ govukNotificationBanner({
+    html: html,
+    type: 'success'
+  }) }}
+{% endif %}
+
+
+<form class="form" action="/add-sales-employee" method="post">
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+    {% from "govuk/components/fieldset/macro.njk" import govukFieldset %}
+    {% from "govuk/components/select/macro.njk" import govukSelect %}
+
+    {% call govukFieldset({
+        legend: {
+        text: "Add New Sale Employee",
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
+        }
+    }) %}
+
+    {{ govukInput({
+        label: {
+        text: 'Employee ID'
+        },
+        classes: "govuk-!-width-two-thirds",
+        id: "id",
+        name: "id"
+    }) }}
+
+    {{ govukInput({
+        label: {
+        text: "Commission Rate"
+        },
+        classes: "govuk-input--width-5",
+        id: "commission",
+        name: "commission"
+    }) }}
+
+    {{ govukInput({
+        label: {
+        text: "Total Sales"
+        },
+        classes: "govuk-input--width-5",
+        id: "totalsales",
+        name: "totalsales"
+    }) }}
+
+    <button class="govuk-button" data-module="govuk-button">ADD</button>
+
+    {% endcall %}
+</form>
+
+{% endblock %}
