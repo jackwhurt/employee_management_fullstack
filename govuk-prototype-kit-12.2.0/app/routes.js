@@ -25,6 +25,11 @@ router.post('/add-employee', async (req, res) => {
   }
 });
 
+router.get('/add-sales-employee-form', async (req, res) => {
+
+  res.render('add-sales-employee-form')
+});
+
 
 
 module.exports = router

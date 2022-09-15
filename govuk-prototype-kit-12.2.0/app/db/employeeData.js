@@ -18,6 +18,7 @@ exports.addEmployee = async ( newEmployee ) => {
         return res.status;
 
     } catch (e) {
+        
         return new Error('couldnt add employee')
      }
 }
