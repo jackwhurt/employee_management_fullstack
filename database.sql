@@ -35,23 +35,14 @@ CREATE TABLE `Project_Employees` (
 	FOREIGN KEY (`ProjectID`) REFERENCES Projects(`ProjectID`)
 );
 
-INSERT INTO Addresses (AddressLineOne, Town, County, Postcode)
+INSERT INTO Employees (`Name`, Address, Postcode, StartingSalary, Department)
 VALUES
-('6 Aberforth road', 'Avalon', 'West Midlands', 'B58 0vx'),
-('7 Aberlake road', 'Avalon', 'West Midlands', 'b72'),
-('8 Aberstuck close', 'Avalon', 'West Midlands', 'b87'),
-('9 Aberlock road', 'Avalon', 'West Midlands', 'b62'),
-('2 Amazon road', 'Canonica', 'West Midlands', 'b91'),
-('6 Fair way', 'West World', 'West Midlands', 'b47');
-
-INSERT INTO Employees (AddressID, `Name`, StartingSalary, Department)
-VALUES
-('1', 'Joe Bloggs', '10000.00', 'Sales'),
-('2', 'Jane Doe', '10000.00', 'Sales'),
-('3', 'Fred Jones', '10000.00', 'HR'),
-('4', 'John Anderson', '15000.00', 'HR'),
-('5', 'Mr Jones', '15000.00', 'Finance'),
-('6', 'Frank Michaels', '20000.00', 'Talent');
+('Joe Bloggs', '6 Aberforth road', 'B58 0vx', '10000.00', 'Sales'),
+('Jane Doe', '6 Aberforth road', 'B58 0vx', '10000.00', 'Sales'),
+('Fred Jones', '6 Aberforth road', 'B58 0vx', '10000.00', 'HR'),
+('John Anderson', '6 Aberforth road', 'B58 0vx', '15000.00', 'HR'),
+('Mr Jones', '6 Aberforth road', 'B58 0vx', '15000.00', 'Finance'),
+('Frank Michaels', '6 Aberforth road', 'B58 0vx', '20000.00', 'Talent');
 
 INSERT INTO SalesEmployees (EmployeeID, Commission, TotalSales)
 VALUES
