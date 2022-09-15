@@ -1,25 +1,16 @@
 -- Setting up tables
 
 -- Employee 'base' table, every Sales employee has a 1 - 1 link to an employee record
-CREATE TABLE `Addresses` (
-   	`AddressID` smallint NOT NULL UNIQUE AUTO_INCREMENT,
-   	`AddressLineOne` varchar(70) UNIQUE NOT NULL,
-	`Town` varchar(90),
-	`County` varchar(30),
-	`Postcode` varchar(10) NOT NULL,
-	PRIMARY KEY (`AddressID`)
-);
-
 CREATE TABLE `Employees` (
     `EmployeeID` smallint NOT NULL UNIQUE AUTO_INCREMENT,
-	`AddressID`smallint NOT NULL,
+	`Address` varchar(250) NOT NULL,
+    `Postcode` varchar(10) NOT NULL,
 	`Name` varchar(30) NOT NULL,
 	`StartingSalary` decimal(10,2),
 	`BankNum` char(17),
 	`NIN` char(9),
 	`Department` ENUM('Sales', 'HR', 'Talent', 'Finance'),
-    PRIMARY KEY (`EmployeeID`),
-	FOREIGN KEY (`AddressID`) REFERENCES Addresses(`AddressID`)
+    PRIMARY KEY (`EmployeeID`)
 );
 
 CREATE TABLE `SalesEmployees` (
