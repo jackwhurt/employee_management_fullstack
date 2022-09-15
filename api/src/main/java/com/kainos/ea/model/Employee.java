@@ -12,7 +12,9 @@ public class Employee {
     @Identifier
     private int EmployeeID;
     @NotNull
-    private int AddressID;
+    private String Address;
+    @NotNull
+    private String Postcode;
     @NotNull
     private String Name;
     private float StartingSalary;
@@ -21,11 +23,13 @@ public class Employee {
     private enum Department{Sales,HR,Talent,Finance}
 
     @JsonCreator
-    public Employee(@JsonProperty("EmployeeID") @Identifier int employeeID,@JsonProperty("AddressID") int addressID,
-                    @JsonProperty("Name") String name,@JsonProperty("StartingSalary") float startingSalary,
+    public Employee(@JsonProperty("EmployeeID") @Identifier int employeeID,@JsonProperty("AddressID") String address,
+                    @JsonProperty("Name") String name, @JsonProperty("Postcode") String postcode,
+                    @JsonProperty("StartingSalary") float startingSalary,
                     @JsonProperty("BankNum") String bankNum,@JsonProperty("NIN") String NIN) {
         EmployeeID = employeeID;
-        AddressID = addressID;
+        Address = address;
+        Postcode = postcode;
         Name = name;
         StartingSalary = startingSalary;
         BankNum = bankNum;
@@ -40,12 +44,20 @@ public class Employee {
         EmployeeID = employeeID;
     }
 
-    public int getAddressID() {
-        return AddressID;
+    public String getAddress() {
+        return Address;
     }
 
-    public void setAddressID(int addressID) {
-        AddressID = addressID;
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    public String getPostcode() {
+        return Postcode;
+    }
+
+    public void setPostcode(String postcode) {
+        Postcode = postcode;
     }
 
     public String getName() {
