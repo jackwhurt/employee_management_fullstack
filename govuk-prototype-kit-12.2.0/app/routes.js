@@ -16,9 +16,12 @@ router.post('/add-employee', async (req, res) => {
 
   let result = await employeeData.addEmployee( employee );
 
-  if ( !result ) {
-    res.locals.errormessage = "please check your fields"
+  if ( result != 200 ) {
+    res.locals.errormessage = "please check your fields again."
     res.render('add-employee-form', req.body)
+  } else {
+    res.locals.successmessage = "the employee has been added!"
+    res.render('add-employee-form', )
   }
 });
 
