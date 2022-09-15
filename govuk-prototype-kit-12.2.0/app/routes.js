@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const employeeData = require('./db/employeeData');
+const salesEmployeeData = require('./db/salesEmployeeData');
 
 // Add your routes here - above the module.exports line
 
@@ -34,7 +35,7 @@ router.post('/add-sales-employee', async (req, res) => {
 
   var employee = req.body;
 
-  let result = await employeeData.addEmployee( employee );
+  let result = await salesEmployeeData.addSalesEmployee( employee );
 
   if ( result != 200 ) {
     res.locals.errormessage = "please check your fields again."

@@ -7,7 +7,7 @@ exports.addSalesEmployee = async ( newSalesEmployee ) => {
         const res = await axios.post('http://localhost:8080/api/salesEmployee',
         {
             EmployeeID:     newSalesEmployee.id,
-            Commision:      newSalesEmployee.commision,
+            Commision:      newSalesEmployee.commission,
             TotalSales:     newSalesEmployee.totalsales
         })
 
