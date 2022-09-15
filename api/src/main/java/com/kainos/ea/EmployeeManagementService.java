@@ -12,6 +12,7 @@ import java.sql.*;
 import java.util.List;
 import com.kainos.ea.db.EmployeeDb;
 import com.kainos.ea.model.Employee;
+import com.kainos.ea.model.SalesEmployee;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -54,6 +55,28 @@ public class EmployeeManagementService {
             statement.setString(5, message.getBankNum());
             statement.setString(6,message.getNIN());
             statement.setString(7, message.getDepartment());
+
+            statement.execute();
+            return Response.ok("User added successfully!").build();
+        } catch (SQLException e) {
+            System.err.println("Exception while creating employee: " + e);
+            return Response.status(400, "Invalid employee data").build();
+        }
+    }
+
+    @POST
+    @Path("/salesEmployee")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response sendMsg(SalesEmployee message) {
+        try {
+
+            Connection c = EmployeeDb.getConnection();
+            Statement st = c.createStatement();
+            PreparedStatement statement = c.prepareStatement("INSERT INTO SalesEmployees (EmployeeID, Commission, TotalSales) VALUES (?, ?, ?)");
+            statement.setInt(1, message.getEmployeeID());
+            statement.setFloat(2, message.getCommision());
+            statement.setFloat(3, message.getTotalSales());
 
             statement.execute();
             return Response.ok("User added successfully!").build();
