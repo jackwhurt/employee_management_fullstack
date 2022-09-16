@@ -56,12 +56,9 @@ router.get('/get-employees-by-dept', async (req,res) => {
 
 })
 
-router.get('/get-employees-by-dept', async (req,res) => {
-
-  var dept = req.query.department
-  res.locals.dept = dept
-  res.render('list-employees', {employees: await employeeData.getEmployeeByDept(dept)})
-  
+router.get('/highest-sales-employee', async (req,res) => {
+  var employee = 
+  res.render('highest-sales-employee', { employee: await salesEmployeeData.highestSalesEmployee() })
 })
 
 module.exports = router

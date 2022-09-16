@@ -1,0 +1,33 @@
+{% extends "layout_unbranded.html" %}
+
+{% block pageTitle %}
+{{ serviceName }}
+{% endblock %}
+ 
+{% block beforeContent %}
+  <a class="govuk-back-link" href="index.html">index</a>
+{% endblock %}
+
+
+{% block content %}
+
+<h2>Highest Sales Employeee This Month</h2> 
+
+{% if employee %}
+{% set row = [] %} 
+{% set row = (row.push(
+    [   {text: employee.employeeID},
+        {text: employee.totalSales}
+    ]), row) %}
+
+{{govukTable({ 
+    head: [ { text: "ID" }, { text: "Total Sales" } ],
+    rows: row }) 
+}} 
+
+{% else %}
+There are no sales employees currently. 
+{% endif %}
+    
+
+{% endblock %}
