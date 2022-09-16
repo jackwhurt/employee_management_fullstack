@@ -57,7 +57,7 @@ router.get('/get-employees-by-dept', async (req,res) => {
 })
 
 router.get('/highest-sales-employee', async (req,res) => {
-  
+  var employee = 
   res.render('highest-sales-employee', { employee: await salesEmployeeData.highestSalesEmployee() })
 })
 
