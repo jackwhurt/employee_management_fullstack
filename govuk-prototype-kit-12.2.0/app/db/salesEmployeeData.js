@@ -18,3 +18,16 @@ exports.addSalesEmployee = async ( newSalesEmployee ) => {
         return new Error('couldnt add sales employee')
      }
 }
+
+exports.highestSalesEmployee = async () => {
+
+    try {
+
+        const res = await axios.get('http://localhost:8080/api/highestSales')
+
+        return res;
+    } catch (e) {
+
+        return new Error ('couldnt return highest sales employee')
+    }
+}
