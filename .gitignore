@@ -189,3 +189,4 @@ app/dbconfig.json
 api/.idea
 api/src/main/resources/db.properties
 api/target/
+api/dependency-reduced-pom.xml
