@@ -23,6 +23,12 @@ public class SalesEmployee {
         TotalSales = totalSales;
     }
 
+    public SalesEmployee(int employeeID, float totalSales) {
+        this.EmployeeID = employeeID;
+        this.TotalSales = totalSales;
+
+    }
+
     public int getEmployeeID() {
         return EmployeeID;
     }

@@ -98,4 +98,27 @@ public class EmployeeManagementService {
             return Response.status(400, "Invalid employee data").build();
         }
     }
+
+    @GET
+    @Path("/highestSales")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public SalesEmployee getMsg() {
+        try {
+
+            Connection c = EmployeeDb.getConnection();
+            Statement st = c.createStatement();
+            PreparedStatement statement = c.prepareStatement("SELECT EmployeeID, TotalSales " +
+                    "FROM SalesEmployees " +
+                    "WHERE TotalSales = (SELECT MAX(TotalSales) FROM SalesEmployees);");
+
+            ResultSet rs = statement.executeQuery();
+            rs.next();
+            SalesEmployee emp = new SalesEmployee(rs.getInt("EmployeeID"), rs.getInt("TotalSales"));
+            return emp;
+        } catch (SQLException e) {
+            System.err.println("Exception while getting employee: " + e);
+            return null;
+        }
+    }
 }
